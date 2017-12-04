@@ -1,0 +1,47 @@
+---
+- hosts: all
+  tasks:
+  - name: Create a hello world file
+    copy: content="Hello World 1: content from within ansible-playbook itself\n" dest=~/hello.txt
+  - name: Copy file to test upload
+    copy: src=hello2.txt dest=~/hello2.txt
+  - shell: head -n 2 ~/hello*.txt ~/*/hello*.txt
+    register: shellecho
+  - debug: 
+       msg: 'Hello world from debug'
+  - debug: 
+       msg: "Hello world from shell:\n{{shellecho.stdout}}"
+  - name: check_hello_files
+    shell: sed -ne 's/Hello world \([0-9]*\):.*/\1/p' ~/hello*.txt ~/*/hello*.txt
+    register: check_hello
+    failed_when: "check_hello.rc != 0"
+  - debug: 
+       msg: "Found hello nrs: {{check_hello.stdout_lines}}"
+  - name: check_hello1
+    fail: msg="hello1.txt is missing"
+    when: "not '1' in check_hello.stdout_lines"
+  - name: check_hello2
+    fail: msg="hello2.txt is missing"
+    when: "not '2' in check_hello.stdout_lines"
+  - name: check_hello3
+    fail: msg="hello3.txt is missing"
+    when: "not '3' in check_hello.stdout_lines"
+  - name: check_hello4
+    fail: msg="hello4.txt is missing"
+    when: "not '4' in check_hello.stdout_lines"
+  - name: check_hello5
+    fail: msg="hello5.txt is missing"
+    when: "not '5' in check_hello.stdout_lines"
+  - name: check_hello6
+    fail: msg="hello6.txt is missing"
+    when: "not '6' in check_hello.stdout_lines"
+  - name: check_hello7
+    fail: msg="hello7.txt is missing"
+    when: "not '7' in check_hello.stdout_lines"
+  - name: check_hello8
+    fail: msg="hello8.txt is missing"
+    when: "not '8' in check_hello.stdout_lines"
+  - name: check_hello9
+    fail: msg="hello9.txt is missing"
+    when: "not '9' in check_hello.stdout_lines"
+
