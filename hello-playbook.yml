@@ -3,7 +3,7 @@
   tasks:
   - name: Create a hello world file
     copy: 
-      content: "Hello World 1: content from within ansible-playbook itself\n" 
+      content: "Hello world 1: content from within ansible-playbook itself\n" 
       dest: "~/hello.txt"
   - name: Copy file to test upload
     copy: src=hello2.txt dest=~/hello2.txt
