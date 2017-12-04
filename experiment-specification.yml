@@ -3,18 +3,18 @@ rspec: docker.rspec
 
 upload:
     - git: 
-      url: git@github.com:wvdemeer/espec-test.git
-      branch: master
-      file: hello3.txt
+         url: git@github.com:wvdemeer/espec-test.git
+         branch: master
+         file: hello3.txt
     - git: 
-      url: git@github.com:wvdemeer/espec-test.git
-      dir: hello4
-      branch: master
+         url: git@github.com:wvdemeer/espec-test.git
+         dir: hello4
+         branch: master
       file: hello4.txt
     - git: 
-      url: git@github.com:wvdemeer/espec-test.git
-      dir: hello56
-      branch: master
+         url: git@github.com:wvdemeer/espec-test.git
+         dir: hello56
+         branch: master
     - hello78
     - hello9.txt
 
