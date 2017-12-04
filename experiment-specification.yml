@@ -10,7 +10,7 @@ upload:
          url: git@github.com:wvdemeer/espec-test.git
          dir: hello4
          branch: master
-      file: hello4.txt
+         file: hello4.txt
     - git: 
          url: git@github.com:wvdemeer/espec-test.git
          dir: hello56
