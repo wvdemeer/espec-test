@@ -18,6 +18,22 @@ upload:
     - hello78
     - hello9.txt
 
+execute:
+   - direct: |
+       #!/bin/bash -e
+       echo 'Running script specified in experiment-specification.yml'
+       echo 'Will wait now...'
+       sleep 10
+       echo '10 seconds have passed...'
+       echo 'This is a test error message' 1>&2
+       sleep 10
+       echo '20 seconds have passed...'
+       sleep 10
+       echo '30 seconds have passed...'
+       sleep 10
+       echo '40 seconds have passed.'
+       echo 'Will stop now.'
+
 ansible:
    host: 
      type: EXISTING
